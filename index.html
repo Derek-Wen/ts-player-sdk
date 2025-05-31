@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TS Player Prototype</title>
+</head>
+<body>
+  <div
+    id="player-container"
+    style="max-width: 700px; margin: 40px auto; font-family: Arial, sans-serif;"
+  >
+    <!-- 1) Video element -->
+    <video
+      id="videoElement"
+      width="640"
+      controls
+      style="display: block; margin-bottom: 16px;"
+    >
+      <source
+        src="https://commondatastorage.googleapis.com/gtv-vod/sample/BigBuckBunny.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- 2) Control buttons -->
+    <div id="controls" style="margin-bottom: 16px;">
+      <button id="playBtn">Play</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="seekBtn">Seek to 30s</button>
+    </div>
+
+    <!-- 3) Status display -->
+    <div id="status">
+      Status: <span id="playbackState">idle</span>
+    </div>
+  </div>
+
+  <!-- 4) Load our TS entrypoint -->
+  <script type="module" src="/src/index.ts"></script>
+</body>
+</html>
