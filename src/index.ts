@@ -11,14 +11,20 @@ const seekBtn = document.getElementById("seekBtn") as HTMLButtonElement | null;
 const stateSpan = document.getElementById("playbackState") as HTMLSpanElement | null;
 
 // 2) Log them to confirm they’re not null
-console.log("videoEl:", videoEl);
-console.log("playBtn:", playBtn);
-console.log("pauseBtn:", pauseBtn);
-console.log("seekBtn:", seekBtn);
-console.log("stateSpan:", stateSpan);
+console.log(
+  `videoEl: ${videoEl}, playBtn: ${playBtn}, pauseBtn: ${pauseBtn}, seekBtn: ${seekBtn}, stateSpan: ${stateSpan}`
+);
 
 if (!videoEl || !playBtn || !pauseBtn || !seekBtn || !stateSpan) {
   console.error("One or more DOM elements not found! Aborting player setup.");
+  // Log DOM elements not found
+  const missing: string[] = [];
+  if (!videoEl) missing.push("videoElement");
+  if (!playBtn) missing.push("playBtn");
+  if (!pauseBtn)  missing.push("pauseBtn");
+  if (!seekBtn) missing.push("seekBtn");
+  if (!stateSpan) missing.push("playbackState");
+  console.error("Missing DOM element(s):", missing.join(", "));
 } else {
   // 3) Instantiate the Player
   const player = new Player({
